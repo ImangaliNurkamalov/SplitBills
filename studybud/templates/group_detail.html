@@ -1,0 +1,10 @@
+<h2>{{ group.name }}</h2>
+<h3>Balances</h3>
+<ul>
+    {% for user, balance in balances.items %}
+        <li>{{ user }}: {% if balance < 0 %} owes {{ balance|abs }} {% else %} is owed {{ balance }} {% endif %}</li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'add_expense' group.id %}">Add Expense</a>
+<a href="{% url 'dashboard' %}">Back to Dashboard</a>
